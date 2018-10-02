@@ -32,6 +32,12 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
+  end
+  
   def likes
     @micropost = current_user.favorite_microposts
   end
