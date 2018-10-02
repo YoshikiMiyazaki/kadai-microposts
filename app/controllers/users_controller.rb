@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.new(user_params)
+    @user = User.new(user_params)
 
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])
     counts(@user)
+  end
+  
+  def likes
+    @micropost = current_user.favorite_microposts
   end
 
   private

@@ -1,6 +1,6 @@
-<ul class="media-list">
-  <% microposts.each do |micropost| %>
-    <li class="media">
+<%# @micropostsをeachで回して一覧表示する %>
+<% @micropost.each do |micropost| %>
+   <li class="media">
       <div class="media-left">
         <img class="media-object img-rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
       </div>
@@ -20,5 +20,3 @@
       </div>
     </li>
   <% end %>
-  <%= paginate microposts %>
-</ul>
